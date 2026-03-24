@@ -59,7 +59,7 @@ class App extends Component {
   render() {
     console.log('App컴포넌트 render() 함수 호출됨!');
     const { todo, todos } = this.state;
-    const { handleChange, handleCreate, handleEnter } = this;
+    const { handleChange, handleCreate, handleEnter, handleToggle, handleRemove } = this;
 
     return (
       <TodoListTemplate form=
@@ -67,9 +67,14 @@ class App extends Component {
         todo={todo} 
         myEnter={handleEnter} 
         myChange={handleChange}
-        myCreate={handleCreate} />
+        myCreate={handleCreate} 
+        />
       }>
-        <TodoItemList todosArr={todos} />
+        <TodoItemList 
+          todosArr={todos} 
+          myToggle={handleToggle} 
+          myRemove={handleRemove} 
+          />
       </TodoListTemplate>
     );
   } //render
